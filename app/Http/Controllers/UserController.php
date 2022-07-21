@@ -51,7 +51,7 @@ class UserController extends Controller
                 // here set the data that we need to store an user
                 'name' => $request->name,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => bcrypt($request->password),
             ]);
 
             // return the previus view
