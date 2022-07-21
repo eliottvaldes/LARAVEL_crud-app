@@ -60,6 +60,18 @@
             </div>
             <div class="col-3 col-md-5">
                 <div class="card shadow p-3 mb-5 bg-body rounded">
+
+                    <!-- show error messages -->
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
                     <div class="card-header">
                         <h3>NEW USER</h3>
                     </div>
@@ -68,15 +80,15 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" >
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" >
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" >
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Submit</button>

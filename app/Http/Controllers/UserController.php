@@ -35,8 +35,17 @@ class UserController extends Controller
     // function to store user data
     // it's a post func, so get the Request params
     public function store(Request $request){
-        // use the file that represent aur user table
+        // use the file that represent our user table
 
+        // validate the request data
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+
+        // create a new user
         User::create(            
             [
                 // here set the data that we need to store an user
