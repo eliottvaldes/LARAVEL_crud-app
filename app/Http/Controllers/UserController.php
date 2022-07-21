@@ -52,7 +52,7 @@ class UserController extends Controller
 
     // function to delete users
     // recieve an user
-    public function delete(User $user){
+    public function destroy(User $user){
 
         // delete user and return to the previoud view
         $user->delete();
